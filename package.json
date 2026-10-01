@@ -1,0 +1,12 @@
+{
+  "name": "pastebin-mini",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Pastebin mini dengan URL raw dan preview terisolasi",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

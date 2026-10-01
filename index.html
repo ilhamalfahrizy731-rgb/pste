@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1120">
+  <title>Pastebin Mini</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="Pastebin Mini beranda"><span class="brand-mark">&gt;_</span> paste<span>bin</span></a>
+      <span class="top-note">Tempel. Pratinjau. Bagikan.</span>
+    </header>
+
+    <section class="hero">
+      <p class="eyebrow"><span class="pulse"></span> TEMPAT KODE SINGGAH</p>
+      <h1>Bagikan kode,<br><span>tanpa ribet.</span></h1>
+      <p class="intro">Simpan snippet dan dapatkan URL raw yang ringkas. Pratinjau HTML, CSS, atau JavaScript sebelum diterbitkan.</p>
+    </section>
+
+    <section class="workspace" aria-label="Buat paste baru">
+      <div class="editor-card">
+        <div class="editor-head">
+          <div class="editor-title"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span><span class="editor-label">PASTE BARU</span></div>
+          <label class="extension-control" for="extension">EKSTENSI
+            <select id="extension" name="extension">
+              <option value="">Tanpa ekstensi</option>
+              <option value="html">.html</option>
+              <option value="css">.css</option>
+              <option value="js">.js</option>
+            </select>
+          </label>
+        </div>
+        <div class="editor-meta">
+          <span id="language-label">Plain text</span>
+          <label id="preview-kind-wrap" class="preview-kind" for="preview-kind">JENIS KODE
+            <select id="preview-kind" name="preview-kind">
+              <option value="none">Tidak perlu preview</option>
+              <option value="html">HTML</option>
+              <option value="css">CSS</option>
+              <option value="js">JavaScript</option>
+            </select>
+          </label>
+        </div>
+        <textarea id="code" spellcheck="false" autocapitalize="off" autocomplete="off" placeholder="Tempel kode kamu di sini..." aria-label="Kode yang akan disimpan"></textarea>
+        <div class="editor-foot"><span><kbd>Ctrl</kbd> + <kbd>Enter</kbd> untuk pratinjau</span><span id="char-count">0 karakter</span></div>
+      </div>
+
+      <div class="action-row">
+        <p id="status" class="status" role="status" aria-live="polite">Pilih ekstensi jika diperlukan, lalu tempel kode.</p>
+        <div class="actions">
+          <button id="preview-button" class="button button-secondary" type="button"><span aria-hidden="true">◉</span> Pratinjau</button>
+          <button id="upload-button" class="button button-primary" type="button" disabled>Upload paste <span aria-hidden="true">↗</span></button>
+        </div>
+      </div>
+
+      <section id="preview-panel" class="preview-panel" hidden>
+        <div class="preview-heading"><div><p class="eyebrow">LANGKAH 1 DARI 2</p><h2>Periksa dulu hasilnya</h2></div><span class="preview-badge"><span class="pulse"></span> PREVIEW LOKAL</span></div>
+        <p class="preview-caption">Preview berjalan di ruang terisolasi dan belum mengunggah kode kamu.</p>
+        <iframe id="preview-frame" title="Pratinjau kode" sandbox="allow-scripts"></iframe>
+        <div class="preview-actions"><button id="edit-button" class="text-button" type="button">← Kembali edit</button><button id="confirm-upload-button" class="button button-primary" type="button">Lanjutkan upload <span aria-hidden="true">↗</span></button></div>
+      </section>
+
+      <section id="result-panel" class="result-panel" hidden>
+        <div class="success-icon">✓</div>
+        <div class="result-copy"><p class="eyebrow">PASTE BERHASIL DISIMPAN</p><h2>URL raw kamu sudah siap</h2><a id="raw-link" href="#" target="_blank" rel="noopener noreferrer"></a></div>
+        <button id="copy-button" class="button button-secondary" type="button">Salin URL</button>
+      </section>
+    </section>
+
+    <footer class="footer"><span>Disimpan dengan urutan otomatis</span><span class="sequence">a1 → a9 <b>·</b> b1 → b9 <b>·</b> c1 → ...</span></footer>
+  </main>
+  <script src="/app.js" defer></script>
+</body>
+</html>
